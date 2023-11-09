@@ -76,7 +76,7 @@ stages:
                   command: 'init'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifest-artifact'
                   backendType: 'azurerm'
-                  backendServiceArm: 'terraform-aks-azurerm-svc-con'
+                  backendServiceArm: 'terraform-aks-azurerm-svc-con1'
                   backendAzureRmResourceGroupName: 'terraform-storage-rg1'
                   backendAzureRmStorageAccountName: 'varunterraformstorageo'
                   backendAzureRmContainerName: 'tfstatefiles'
@@ -87,7 +87,7 @@ stages:
                 inputs:
                   command: 'plan'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifest-artifact'
-                  environmentServiceName: 'terraform-aks-azurerm-svc-con'
+                  environmentServiceName: 'terraform-aks-azurerm-svc-con1'
                   commandOptions: '-var ssh_public_key=$(sshkey.secureFilePath) -var environment=$(DEV_ENV) -out $(Pipeline.Workspace)/terraform-manifest-artifact/$(DEV_ENV)-$(Build.BuildId).out'
                   allowTelemetryCollection: false
               - task: TerraformCLI@0
@@ -95,7 +95,7 @@ stages:
                 inputs:
                   command: 'apply'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifest-artifact'
-                  environmentServiceName: 'terraform-aks-azurerm-svc-con'
+                  environmentServiceName: 'terraform-aks-azurerm-svc-con1'
                   commandOptions: '$(Pipeline.Workspace)/terraform-manifest-artifact/$(DEV_ENV)-$(Build.BuildId).out'
                   allowTelemetryCollection: false
           
