@@ -32,9 +32,9 @@ stages:
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-manifests'
             backendType: 'azurerm'
-            backendServiceArm: 'terraform-aks-azurerm-svc-con'
+            backendServiceArm: 'terraform-aks-azurerm-svc-con1'
             ensureBackend: true
-            backendAzureRmResourceGroupName: 'terraform-storage-rg'
+            backendAzureRmResourceGroupName: 'terraform-storage-rg1'
             backendAzureRmResourceGroupLocation: 'Central US'
             backendAzureRmStorageAccountName: 'varun-terraform-storage-account'
             backendAzureRmContainerName: 'tfstates'
