@@ -36,7 +36,7 @@ stages:
             ensureBackend: true
             backendAzureRmResourceGroupName: 'terraform-storage-rg1'
             backendAzureRmResourceGroupLocation: 'Central US'
-            backendAzureRmStorageAccountName: 'varunterraformstorage'
+            backendAzureRmStorageAccountName: 'varunterraformstorageo'
             backendAzureRmContainerName: 'tfstates'
             backendAzureRmKey: 'aks-base.tfstate'
             allowTelemetryCollection: false
