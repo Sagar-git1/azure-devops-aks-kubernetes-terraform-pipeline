@@ -39,6 +39,12 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-manifests'
             backendType: 'azurerm'
             backendServiceArm: 'terraform-aks-azurerm-svc-con1'
+            ensureBackend: true
+            backendAzureRmResourceGroupName: 'terraform-storage-rg1'
+            backendAzureRmResourceGroupLocation: 'Central US'
+            backendAzureRmStorageAccountName: 'varunterraformstorageo'
+            backendAzureRmContainerName: 'tfstates'
+            backendAzureRmKey: 'aks-base.tfstate'
             allowTelemetryCollection: false
             
         - task: TerraformCLI@2
@@ -71,6 +77,10 @@ stages:
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifest-artifact'
                   backendType: 'azurerm'
                   backendServiceArm: 'terraform-aks-azurerm-svc-con1'
+                  backendAzureRmResourceGroupName: 'terraform-storage-rg1'
+                  backendAzureRmStorageAccountName: 'varunterraformstorageo'
+                  backendAzureRmContainerName: 'tfstates'
+                  backendAzureRmKey: 'aks-$(DEV_ENV).tfstate'
                   allowTelemetryCollection: false
               - task: TerraformCLI@0
                 displayName: Terraform Plan
